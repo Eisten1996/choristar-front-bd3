@@ -1,0 +1,27 @@
+.home_user_name {
+    color: rgb(59, 238, 59);/* $color_primary-02;*/
+  } 
+  mat-card{
+    margin: 0;
+    width: 100%;
+    background: white;
+  }
+  mat-card-header-text{
+    width: 100% !important;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 97%;
+  }
+  
+  td, th {
+    width: 16.166%;
+  }
+  div{
+    width: 97%;
+  }

@@ -1,0 +1,55 @@
+main{
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.app-sidenav-container {
+    flex: 1;
+    height: 100%;
+    min-height: 100%;
+    position: fixed;
+    width: 100%;
+    min-width: 100%;
+  }
+  .app-sidenav-content{
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+  }
+
+  .app-sidenav{
+      width: 240px;
+
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+  }
+
+  .color-link{
+      color:white;
+  }
+
+  .log{
+    margin: auto;
+    width: 50%;
+    height: 50%;
+  }
+
+  .buttom-block{
+    margin: 0;
+    width: 89%;
+    text-align: left;
+    background: #E6E6FA;
+  }
+  

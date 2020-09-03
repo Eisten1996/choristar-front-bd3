@@ -1,0 +1,47 @@
+mat-card{
+    margin: 0;
+    width: 100%;
+    background: white;
+}
+mat-card-header-text{
+    width: 100% !important;
+  }
+.card-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .card-container2{
+    width: 100%;
+  }
+
+.card-container-left{
+    margin-right: 30px;
+    width: 480px;
+    background-image: url(https://image.freepik.com/vector-gratis/fondo-pintura-acuarela-rosa-vibrante_53876-58930.jpg);
+    background-repeat: no-repeat;
+    background-position-y: -250px;
+  }
+  .card-container-right{
+    margin-right: 30px;
+    width: 670px;
+    /* width: expression(document.body.clientWidth < 1200px? "width: auto;": "30%");  */
+  }
+  
+.home_user_name {
+    color: rgb(59, 238, 59);/* $color_primary-02;*/
+} 
+.section_home {
+    margin: 15px;
+}
+
+.header_home {
+    margin-top: 25px;
+}
+
+.example-button-row {
+  margin: 0px;
+  width: 100%;
+  text-align: center;
+}

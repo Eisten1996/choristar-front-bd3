@@ -1,0 +1,101 @@
+<body>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <span class="home_user_name">MY PROFILE</span>
+        </mat-card-title>
+        <mat-card-subtitle>
+            PERSONALS DATE
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="card-container">
+    <mat-card class="card-container-left">
+        <img src="../../../assets/images/default_profile.png" alt=":v" 
+        width= "200px"
+        style="margin: auto; display: block;">
+        <br>
+        <mat-card-title style="text-align: center;">
+            <span>*LASTNAME1* *LASTNAME2* *NAME1* *NAME2*</span>
+        </mat-card-title>
+        <mat-card-subtitle style="text-align: center;">
+            NAME & LASTNAME
+        </mat-card-subtitle>
+
+        <mat-card-title style="text-align: center;">
+            <span>*RANDOM NUMBERS*</span>
+        </mat-card-title>
+        <mat-card-subtitle style="text-align: center;">
+            CODE
+        </mat-card-subtitle>
+
+        <mat-card-title style="text-align: center;">
+            <span>*RANDOM VALUE*</span>
+        </mat-card-title>
+        <mat-card-subtitle style="text-align: center;">
+            RANDOM CATEGORY
+        </mat-card-subtitle>
+
+        <div class="example-button-row">
+            <button mat-button style="width: 80%; text-align: center;">BRANCH</button><br>
+            <button mat-button style="width: 80%; text-align: center;">SECTOR</button><br>
+            <button mat-button style="width: 80%; text-align: center;">AREA</button><br>
+            <button mat-button style="width: 80%; text-align: center;">EDIT</button><br>
+        </div>
+    </mat-card>
+
+    <mat-card class="card-container-right">
+        <mat-tab-group mat-stretch-tabs >
+                <mat-tab label="Información Personal">
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="DNI" value="12345678" >
+                    </mat-form-field><br>
+
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Marital Status" value="Unmarried" >
+                    </mat-form-field><br>
+
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Gender" value="Male">
+                    </mat-form-field><br>
+
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Birth Date" value="14/04/1999" >
+                    </mat-form-field><br>
+
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Birthplace" value="Lima">
+                    </mat-form-field><br>
+
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Celular" value="987654321">
+                    </mat-form-field><br>
+
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Email" value="nombre.apellido@unmsm.edu.pe">
+                    </mat-form-field><br>
+
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Domicilio" value="Departamento/Provincia/Distrito">
+                    </mat-form-field><br>
+                </mat-tab>
+
+
+                <mat-tab label="Información Laboral"> 
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Position" value="DB Administrator">
+                    </mat-form-field><br>
+
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Time of Service" value="1 year">
+                    </mat-form-field><br>
+
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Contract" value="On a schedule">
+                    </mat-form-field><br>
+                </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+    </mat-card-content>
+</mat-card>
+</body>
