@@ -1,35 +1,35 @@
-  <mat-card>
-    <img src="assets/images/default_profile.png" width="180">
-  </mat-card>
-  <mat-card>
-    <form action="">
-      <mat-form-field>
-        <input type="text" matInput placeholder="Welcome" value="Albert Huaman" disabled #user>
-      </mat-form-field>
-      <mat-form-field>
-        <input type="text" matInput placeholder="Status" value="Online" disabled #password>
-      </mat-form-field>
-    </form>
-  </mat-card>
-  <mat-card class="buttom-block2">
-    <a mat-button style="width: 100%; text-align: left;" href="http://localhost:4200">
-      <mat-icon class="color-link">home</mat-icon>
-      <span class="color-link">Home</span>
-    </a><br>
-    <a mat-button style="width: 100%; text-align: left;" href="http://localhost:4200/profiles">
-      <mat-icon class="color-link">person</mat-icon>
-      <span class="color-link">My Profile</span>
-    </a><br>
-    <a mat-button style="width: 100%; text-align: left;" href="http://localhost:4200/services">
-      <mat-icon class="color-link">people_alt</mat-icon>
-      <span class="color-link">Clients</span>
-    </a><br>
-    <a mat-button style="width: 100%; text-align: left;" href="http://localhost:4200/claims">
-      <mat-icon class="color-link">question_answer</mat-icon>
-      <span class="color-link">Claims</span>
-    </a><br>
-    <a mat-button style="width: 100%; text-align: left;" href="http://localhost:4200/requests">
-      <mat-icon class="color-link">touch_app</mat-icon>
-      <span class="color-link">Requests</span>
-    </a>
-  </mat-card>
+<mat-card>
+  <img src="assets/images/default_profile.png" width="180">
+</mat-card>
+<mat-card>
+  <form action="">
+    <mat-form-field>
+      <input type="text" matInput placeholder="Welcome" value="Albert Huaman" disabled #user>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Status" value="Online" disabled #password>
+    </mat-form-field>
+  </form>
+</mat-card>
+<mat-card class="buttom-block2">
+  <a mat-button class="btn-center-100" routerLink="/">
+    <mat-icon class="color-link">home</mat-icon>
+    <span class="color-link">Home</span>
+  </a><br>
+  <a mat-button class="btn-center-100" routerLink="/profiles">
+    <mat-icon class="color-link">person</mat-icon>
+    <span class="color-link">My Profile</span>
+  </a><br>
+  <a mat-button class="btn-center-100" routerLink="/services">
+    <mat-icon class="color-link">people_alt</mat-icon>
+    <span class="color-link">Clients</span>
+  </a><br>
+  <a mat-button class="btn-center-100" routerLink="/claims">
+    <mat-icon class="color-link">question_answer</mat-icon>
+    <span class="color-link">Claims</span>
+  </a><br>
+  <a mat-button class="btn-center-100" routerLink="/requests">
+    <mat-icon class="color-link">touch_app</mat-icon>
+    <span class="color-link">Requests</span>
+  </a>
+</mat-card>
