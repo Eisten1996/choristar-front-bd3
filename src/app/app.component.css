@@ -53,3 +53,8 @@ main{
     background: #E6E6FA;
   }
   
+  mat-card{
+    margin: auto;
+    width: 20%;
+    display: block;
+}
