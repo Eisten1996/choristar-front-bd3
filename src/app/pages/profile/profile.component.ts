@@ -12,8 +12,8 @@ export class ProfileComponent implements OnInit {
     private ProfileService: ProfileService
   ) { }
 
-  getAllProfiles(){
-    this.ProfileService.getAllProfiles().subscribe(
+  getAllUsers(){
+    this.ProfileService.getAllUsers().subscribe(
       profiles => {console.log(profiles)}
     )
   }

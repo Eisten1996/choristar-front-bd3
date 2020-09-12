@@ -17,7 +17,7 @@ export class ClaimServiceService {
     return this.http.get<Claim[]>(path);
   }
 
-  createRequest(claim: Claim, dni: string){
+  createClaim(claim: Claim, dni: string){
     const path = `${this.api}/claim/${dni}`;
     return this.http.post(path, claim)
   }
