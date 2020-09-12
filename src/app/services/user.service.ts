@@ -12,13 +12,33 @@ export class ProfileService {
     private http: HttpClient
   ) { }
 
-  getAllProfiles(){
+  getAllUsers(){
     const path = `${this.api}/users`;
     return this.http.get<Profile[]>(path);
   }
 
-  createProfile(profile: Profile){
-    const path = `${this.api}/users`;
+  getUserDni(dni: string){
+    const path = `${this.api}/user?dni=${dni}`;
+    return this.http.get<Profile>(path);
+  }
+
+  getUser(id: string){
+    const path = `${this.api}/user/${id}`;
+    return this.http.get<Profile>(path);
+  }
+
+  createUser(profile: Profile){
+    const path = `${this.api}/user`;
     return this.http.post(path, profile)
+  }
+
+  updateUser(profile: Profile){
+    const path = `${this.api}/user/${profile.id}`
+    return this.http.put<Profile>(path, profile);
+  }
+
+  deleteUser(id: string){
+    const path = `${this.api}/user/${id}`;
+    return this.http.delete(path);
   }
 }
