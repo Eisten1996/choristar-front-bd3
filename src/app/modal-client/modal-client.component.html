@@ -1,0 +1,46 @@
+<h2 mat-dialog-title> Cliente Choristar</h2>
+<mat-dialog-content>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ data.client.firstName + data.client.lastName}}</mat-card-title>
+      <mat-card-subtitle>{{ data.client.dni }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field floatLabel="auto" hideRequiredMarker appearance="fill">
+          <mat-label>Correo</mat-label>
+          <input matInput [value]=data.client.email disabled>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field floatLabel="auto" hideRequiredMarker appearance="fill">
+          <mat-label>Estado del Cliente</mat-label>
+          <input matInput [value]=data.client.stateUser.nameUser disabled>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-label>Servicios</mat-label>
+        <table id="services">
+          <tr>
+            <th>Tipo</th>
+            <th>Estado</th>
+            <th>Precio</th>
+            <th>Fecha</th>
+          </tr>
+          <tr *ngFor="let servicio of data.client.services">
+            <td>{{servicio.typeService.service}}</td>
+            <td>{{servicio.stateService}}</td>
+            <td>{{servicio.price}}</td>
+            <td>{{servicio.dateHire | date: 'shortDate'}}</td>
+          </tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close mat-dialog-close="false">
+    Cerrar
+  </button>
+</mat-dialog-actions>
