@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Profile } from '../interfaces/profile';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Profile} from '../interfaces/profile';
 
 @Injectable({
   providedIn: 'root'
@@ -10,34 +10,35 @@ export class ProfileService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
-  getAllUsers(){
+  getAllUsers() {
     const path = `${this.api}/users`;
     return this.http.get<Profile[]>(path);
   }
 
-  getUserDni(dni: string){
+  getUserDni(dni: string) {
     const path = `${this.api}/user?dni=${dni}`;
     return this.http.get<Profile>(path);
   }
 
-  getUser(id: string){
+  getUser(id: string) {
     const path = `${this.api}/user/${id}`;
     return this.http.get<Profile>(path);
   }
 
-  createUser(profile: Profile){
+  createUser(profile: Profile) {
     const path = `${this.api}/user`;
     return this.http.post(path, profile)
   }
 
-  updateUser(profile: Profile){
+  updateUser(profile: Profile) {
     const path = `${this.api}/user/${profile.id}`
     return this.http.put<Profile>(path, profile);
   }
 
-  deleteUser(id: string){
+  deleteUser(id: string) {
     const path = `${this.api}/user/${id}`;
     return this.http.delete(path);
   }
