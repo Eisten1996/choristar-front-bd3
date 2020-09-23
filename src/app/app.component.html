@@ -32,18 +32,19 @@
     alt="Choristar Logo"
     src="https://scontent.flim7-1.fna.fbcdn.net/v/t1.0-9/8407_497193200452798_431624707150333811_n.png?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=3sLAJ_8MF9UAX_bnOCb&_nc_ht=scontent.flim7-1.fna&oh=628a94ee700e06c01e3a4fdf512cb538&oe=5F71D087" 
     >
-    <form action="">
+    <form #loginForm="ngForm">
+      <!-- {{loginForm.value | json}} -->
+      <br>
       <mat-form-field>
-        <input type="text" matInput placeholder="User" #user>
+        <input type="text" matInput placeholder="User" [(ngModel)]="email" name="user" >
       </mat-form-field>
       <br>
       <mat-form-field>
-        <input type="text" matInput placeholder="Password" #password>
+        <input type="text" matInput placeholder="Password"  [(ngModel)]="password" name="password" >
       </mat-form-field>
-      <button mat-raised-button style="display: block; width:50%; margin: auto;" (click)="flag=!flag">
+      <button mat-raised-button style="display: block; width:50%; margin: auto;" (click)="logingAdmin(email,password)">
         Ingresar
-      </button>
-      
+      </button>      
       <!-- <a mat-raised-button style="display: block; width:50%; margin: auto;" href="http://localhost:4200/home">
         Ingresar
       </a> -->
@@ -80,7 +81,7 @@
 
 <mat-sidenav-container class="app-sidenav-container">
     <mat-sidenav #sidenav class="app-sidenav" opened="true" mode="side">
-      <app-menu2></app-menu2>
+      <app-menu2 [user]="foobar"></app-menu2>
     </mat-sidenav>
 
     <mat-sidenav-content>

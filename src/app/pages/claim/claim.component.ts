@@ -2,8 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { ClaimServiceService } from '../../services/claim-service.service'
 import {Claim} from "../../interfaces/claim";
-import {ClaimServiceService} from "../../services/claim-service.service";
 import {MatDialog} from "@angular/material/dialog";
 /* import {ModalClientComponent} from "../../modal-client/modal-client.component"; */
 
@@ -61,7 +61,6 @@ export class ClaimComponent implements OnInit{
   /* function createNewUser(id: number): UserData {
     const type = TYPE[Math.round(Math.random() * (TYPE.length - 1))] ;
     const date = DAY[Math.round(Math.random() * (DAY.length - 1))]+'/'+MONTH[Math.round(Math.random() * (MONTH.length - 1))]+'/'+YEAR[Math.round(Math.random() * (YEAR.length - 1))];
-  
 
   return {
     id: id.toString(),

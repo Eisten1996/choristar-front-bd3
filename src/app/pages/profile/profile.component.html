@@ -16,24 +16,24 @@
         style="margin: auto; display: block;">
         <br>
         <mat-card-title style="text-align: center;">
-            <span>*LASTNAME1* *LASTNAME2* *NAME1* *NAME2*</span>
+            <span>{{userData.firstName}} {{userData.lastName}}</span>
         </mat-card-title>
         <mat-card-subtitle style="text-align: center;">
             NAME & LASTNAME
         </mat-card-subtitle>
 
         <mat-card-title style="text-align: center;">
-            <span>*RANDOM NUMBERS*</span>
+            <span>{{userData.dni}}</span>
         </mat-card-title>
         <mat-card-subtitle style="text-align: center;">
-            CODE
+            DNI
         </mat-card-subtitle>
 
         <mat-card-title style="text-align: center;">
-            <span>*RANDOM VALUE*</span>
+            <span>{{userData.typeUser.nameTypeUser}}</span>
         </mat-card-title>
         <mat-card-subtitle style="text-align: center;">
-            RANDOM CATEGORY
+            CATEGORY
         </mat-card-subtitle>
 
         <div class="example-button-row">
@@ -48,10 +48,18 @@
         <mat-tab-group mat-stretch-tabs >
                 <mat-tab label="Información Personal">
                     <mat-form-field class="card-container2">
-                        <input type="text" matInput disabled placeholder="DNI" value="12345678" >
+                        <input type="text" matInput disabled placeholder="DNI" value={{userData.dni}} >
                     </mat-form-field><br>
 
                     <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="Birth Date" value="{{userData.dateBirth.split('T')[0]}}" >
+                    </mat-form-field><br>
+
+                    <mat-form-field class="card-container2">
+                        <input type="text" matInput disabled placeholder="E-Mail" value={{userData.email}} >
+                    </mat-form-field><br>
+
+                    <!-- <mat-form-field class="card-container2">
                         <input type="text" matInput disabled placeholder="Marital Status" value="Unmarried" >
                     </mat-form-field><br>
 
@@ -77,7 +85,7 @@
 
                     <mat-form-field class="card-container2">
                         <input type="text" matInput disabled placeholder="Domicilio" value="Departamento/Provincia/Distrito">
-                    </mat-form-field><br>
+                    </mat-form-field><br> -->
                 </mat-tab>
 
 
