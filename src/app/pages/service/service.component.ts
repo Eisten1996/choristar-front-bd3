@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {Profile} from "../../interfaces/profile";
 import {ProfileService} from "../../services/user.service";
-import {MatPaginator} from "@angular/material/paginator";
-import {MatSort} from "@angular/material/sort";
 import {MatDialog} from "@angular/material/dialog";
 import {ModalClientComponent} from "../../modal-client/modal-client.component";
 
@@ -16,6 +16,7 @@ import {ModalClientComponent} from "../../modal-client/modal-client.component";
 export class ServiceComponent implements OnInit {
   displayedColumns: string[] = ['dni', 'firstName', 'lastName', 'email', 'stateUser', 'showUser'];
   profiles: Profile[];
+
   dataSource = new MatTableDataSource<Profile>(this.profiles);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;

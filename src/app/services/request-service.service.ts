@@ -13,7 +13,7 @@ export class RequestServiceService {
   ) { }
 
   getAllRequests(){
-    const path = `${this.api}/request`;
+    const path = `${this.api}/requests`;
     return this.http.get<Request[]>(path);
   }
 

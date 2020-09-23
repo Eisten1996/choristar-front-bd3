@@ -1,3 +1,3 @@
 export interface TypeRequest {
-    typeRequest: string;
+    request: string;
 }

@@ -2,22 +2,11 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {Claim} from "../../interfaces/claim";
+import {ClaimServiceService} from "../../services/claim-service.service";
+import {MatDialog} from "@angular/material/dialog";
+/* import {ModalClientComponent} from "../../modal-client/modal-client.component"; */
 
-export interface UserData {
-  id: string;
-  dateclaim: string;
-  typeClaim: string;
-  claim: string;
-  iduser: string;
-  stateClaim: string;
-}
-
-const DAY: string[]  = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'];
-const MONTH: string[]  = ['01','02','03','04','05','06','07','08','09','10'];
-const YEAR: string[]  = ['2011','2012','2013','2014','2015','2016','2017','2018','2019','2020'];
-
-const STATE: string[]  = ['CONCLUDED', 'ON HOLD'];
-const TYPE: string[]  = ['URGENT', 'POSTPONABLE', 'UNKNOWN'];
 
 @Component({
   selector: 'app-claim',
@@ -25,26 +14,23 @@ const TYPE: string[]  = ['URGENT', 'POSTPONABLE', 'UNKNOWN'];
   styleUrls: ['./claim.component.css']
 })
 export class ClaimComponent implements OnInit{
-  displayedColumns: string[] = ['id', 'dateclaim', 'typeClaim','iduser','stateClaim', 'claim'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['id', 'dateClaim', 'typeClaim','user','stateClaim'];
+  claims: Claim[];
 
+  dataSource = new MatTableDataSource<Claim>(this.claims);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() {
-     // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users); 
+  constructor(private claimService: ClaimServiceService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.getAllClaims();
   }
 
-  applyFilter(event: Event) {
+  public applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -52,10 +38,27 @@ export class ClaimComponent implements OnInit{
       this.dataSource.paginator.firstPage();
     }
   }
-}
+
+  public getAllClaims() {
+    const resp = this.claimService.getAllClaims();
+    resp.subscribe(claim => {
+      this.dataSource.data = claim as Claim[];
+    });
+  }
+
+ /*  public getUser(client: Claim) {
+    console.log(client);
+    let dialogRef = this.dialog.open(ModalClientComponent, {
+      data: {client},
+    });
+    dialogRef.afterClosed().subscribe((resolve) => {
+      console.log(`Dialog resolve : ${resolve}`);
+    });
+  } */
 
 
-  function createNewUser(id: number): UserData {
+
+  /* function createNewUser(id: number): UserData {
     const type = TYPE[Math.round(Math.random() * (TYPE.length - 1))] ;
     const date = DAY[Math.round(Math.random() * (DAY.length - 1))]+'/'+MONTH[Math.round(Math.random() * (MONTH.length - 1))]+'/'+YEAR[Math.round(Math.random() * (YEAR.length - 1))];
   
@@ -70,7 +73,7 @@ export class ClaimComponent implements OnInit{
     /* id: id.toString(),
     name: name,
     progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))] */
-  };
-}
+    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))] 
+  };*/
+} 
 
