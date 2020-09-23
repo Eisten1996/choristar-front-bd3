@@ -11,26 +11,26 @@
 
     <mat-card-content class="card-container">
     <mat-card class="card-container-left">
-        <img src="../../../assets/images/default_profile.png" alt=":v" 
+        <img src="../../../assets/images/default_profile.png" alt=":v"
         width= "200px"
         style="margin: auto; display: block;">
         <br>
         <mat-card-title style="text-align: center;">
-            <span>{{userData.firstName}} {{userData.lastName}}</span>
+            <span>{{admin.firstName}} {{admin.lastName}}</span>
         </mat-card-title>
         <mat-card-subtitle style="text-align: center;">
             NAME & LASTNAME
         </mat-card-subtitle>
 
         <mat-card-title style="text-align: center;">
-            <span>{{userData.dni}}</span>
+            <span>{{admin.dni}}</span>
         </mat-card-title>
         <mat-card-subtitle style="text-align: center;">
             DNI
         </mat-card-subtitle>
 
         <mat-card-title style="text-align: center;">
-            <span>{{userData.typeUser.nameTypeUser}}</span>
+            <span>{{admin.typeUser.nameTypeUser}}</span>
         </mat-card-title>
         <mat-card-subtitle style="text-align: center;">
             CATEGORY
@@ -48,15 +48,15 @@
         <mat-tab-group mat-stretch-tabs >
                 <mat-tab label="Información Personal">
                     <mat-form-field class="card-container2">
-                        <input type="text" matInput disabled placeholder="DNI" value={{userData.dni}} >
+                        <input type="text" matInput disabled placeholder="DNI" value={{admin.dni}} >
                     </mat-form-field><br>
 
                     <mat-form-field class="card-container2">
-                        <input type="text" matInput disabled placeholder="Birth Date" value="{{userData.dateBirth.split('T')[0]}}" >
+                        <input type="text" matInput disabled placeholder="Birth Date" value="{{admin.dateBirth.split('T')[0]}}" >
                     </mat-form-field><br>
 
                     <mat-form-field class="card-container2">
-                        <input type="text" matInput disabled placeholder="E-Mail" value={{userData.email}} >
+                        <input type="text" matInput disabled placeholder="E-Mail" value={{admin.email}} >
                     </mat-form-field><br>
 
                     <!-- <mat-form-field class="card-container2">
@@ -89,7 +89,7 @@
                 </mat-tab>
 
 
-                <mat-tab label="Información Laboral"> 
+                <mat-tab label="Información Laboral">
                     <mat-form-field class="card-container2">
                         <input type="text" matInput disabled placeholder="Position" value="DB Administrator">
                     </mat-form-field><br>

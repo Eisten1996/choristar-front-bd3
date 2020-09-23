@@ -1,4 +1,3 @@
-
 <style>
   p {
     margin: 0;
@@ -7,50 +6,51 @@
 
 <!-- HTML -->
 <div *ngIf="!flag">
-<p>
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-    <img
-      width="25"
-      alt=":v"
-      src="assets/images/Logo.png"
-    />
-    <span>Administrador</span>
-    <span class="example-spacer"></span>
-      <a mat-button href="https://www.google.com/">
-        <mat-icon class="color-link">power_settings_new</mat-icon>
-        <span class="color-link">Salir</span>
-      </a>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</p>
+  <p>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <img
+          width="25"
+          alt=":v"
+          src="assets/images/Logo.png"
+        />
+        <span>Administrador</span>
+        <span class="example-spacer"></span>
+        <a mat-button href="https://www.google.com/">
+          <mat-icon class="color-link">power_settings_new</mat-icon>
+          <span class="color-link">Salir</span>
+        </a>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </p>
 
-<main>
-  <mat-card>
-    <img 
-    width="150"
-    alt="Choristar Logo"
-    src="https://scontent.flim7-1.fna.fbcdn.net/v/t1.0-9/8407_497193200452798_431624707150333811_n.png?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=3sLAJ_8MF9UAX_bnOCb&_nc_ht=scontent.flim7-1.fna&oh=628a94ee700e06c01e3a4fdf512cb538&oe=5F71D087" 
-    >
-    <form #loginForm="ngForm">
-      <!-- {{loginForm.value | json}} -->
-      <br>
-      <mat-form-field>
-        <input type="text" matInput placeholder="User" [(ngModel)]="email" name="user" >
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input type="text" matInput placeholder="Password"  [(ngModel)]="password" name="password" >
-      </mat-form-field>
-      <button mat-raised-button style="display: block; width:50%; margin: auto;" (click)="logingAdmin(email,password)">
-        Ingresar
-      </button>      
-      <!-- <a mat-raised-button style="display: block; width:50%; margin: auto;" href="http://localhost:4200/home">
-        Ingresar
-      </a> -->
-    </form>
-  </mat-card>
-</main>
+  <main>
+    <mat-card>
+      <img
+        width="150"
+        alt="Choristar Logo"
+        src="https://scontent.flim7-1.fna.fbcdn.net/v/t1.0-9/8407_497193200452798_431624707150333811_n.png?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=3sLAJ_8MF9UAX_bnOCb&_nc_ht=scontent.flim7-1.fna&oh=628a94ee700e06c01e3a4fdf512cb538&oe=5F71D087"
+      >
+      <form #loginForm="ngForm">
+        <!-- {{loginForm.value | json}} -->
+        <br>
+        <mat-form-field>
+          <input type="text" matInput placeholder="User" [(ngModel)]="email" name="user">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" [(ngModel)]="password" name="password">
+        </mat-form-field>
+        <button mat-raised-button style="display: block; width:50%; margin: auto;"
+                (click)="logingAdmin(email,password)">
+          Ingresar
+        </button>
+        <!-- <a mat-raised-button style="display: block; width:50%; margin: auto;" href="http://localhost:4200/home">
+          Ingresar
+        </a> -->
+      </form>
+    </mat-card>
+  </main>
 </div>
 
 <div *ngIf="flag">
@@ -60,18 +60,18 @@
         <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
-      <img
-        width="25"
-        alt=":v"
-        src="assets/images/Logo.png"
-      />
-      <span>Administrador</span>
-      <span class="example-spacer"></span>
+        <img
+          width="25"
+          alt=":v"
+          src="assets/images/Logo.png"
+        />
+        <span>Administrador</span>
+        <span class="example-spacer"></span>
         <!-- <a mat-button href="https://www.google.com/">
           <mat-icon class="color-link">power_settings_new</mat-icon>
           <span class="color-link">Salir</span>
         </a> -->
-        <button mat-button (click)="flag=!flag">
+        <button mat-button (click)=salir()>
           <mat-icon class="color-link">power_settings_new</mat-icon>
           <span class="color-link">Salir</span>
         </button>
@@ -79,16 +79,15 @@
     </mat-toolbar>
   </p>
 
-<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav-container class="app-sidenav-container">
     <mat-sidenav #sidenav class="app-sidenav" opened="true" mode="side">
-      <app-menu2 [user]="foobar"></app-menu2>
+      <app-menu2></app-menu2>
     </mat-sidenav>
 
     <mat-sidenav-content>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
 
-</mat-sidenav-container>
+  </mat-sidenav-container>
 </div>
-  
- 
+

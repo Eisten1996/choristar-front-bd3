@@ -4,7 +4,7 @@
 <mat-card>
   <form action="">
     <mat-form-field>
-      <input type="text" matInput placeholder="Welcome" value="Albert Huaman" disabled #user>
+      <input type="text" matInput placeholder="Welcome" [value]="admin.firstName + ' ' + admin.lastName" disabled #user>
     </mat-form-field>
     <mat-form-field>
       <input type="text" matInput placeholder="Status" value="Online" disabled #password>
@@ -12,7 +12,6 @@
   </form>
 </mat-card>
 <mat-card class="buttom-block2">
-  Usuario: {{user}}
   <br>
   <a mat-button class="btn-center-100" routerLink="/">
     <mat-icon class="color-link">home</mat-icon>
