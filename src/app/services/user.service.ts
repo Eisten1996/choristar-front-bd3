@@ -27,6 +27,11 @@ export class ProfileService {
     return this.http.get<Profile>(path);
   }
 
+  logingAdmin(email: string, password: string){
+    const path = `${this.api}/user/login/${email}/${password}`;
+    return this.http.get<Profile>(path);
+  }
+
   createUser(profile: Profile){
     const path = `${this.api}/user`;
     return this.http.post(path, profile)

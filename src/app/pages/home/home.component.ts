@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../../services/user.service'
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent {
   
-  constructor() { }
+  constructor(){ }
+  // constructor(private profileService: ProfileService){}
 
+  // getAllUsers(){
+  //   this.profileService.getAllUsers()
+  //   .subscribe(users =>{
+  //     console.log(users);
+  //   })
+  // }
   ngOnInit(): void {
   }
 

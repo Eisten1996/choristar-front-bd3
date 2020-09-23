@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { ClaimServiceService } from '../../services/claim-service.service'
 
 export interface UserData {
   id: string;
@@ -55,9 +56,9 @@ export class ClaimComponent implements OnInit{
 }
 
 
-  function createNewUser(id: number): UserData {
-    const type = TYPE[Math.round(Math.random() * (TYPE.length - 1))] ;
-    const date = DAY[Math.round(Math.random() * (DAY.length - 1))]+'/'+MONTH[Math.round(Math.random() * (MONTH.length - 1))]+'/'+YEAR[Math.round(Math.random() * (YEAR.length - 1))];
+function createNewUser(id: number): UserData {
+  const type = TYPE[Math.round(Math.random() * (TYPE.length - 1))] ;
+  const date = DAY[Math.round(Math.random() * (DAY.length - 1))]+'/'+MONTH[Math.round(Math.random() * (MONTH.length - 1))]+'/'+YEAR[Math.round(Math.random() * (YEAR.length - 1))]; 
   
 
   return {
