@@ -13,7 +13,7 @@ export class ClaimServiceService {
   ) { }
 
   getAllClaims(){
-    const path = `${this.api}/claim`;
+    const path = `${this.api}/claims`;
     return this.http.get<Claim[]>(path);
   }
 

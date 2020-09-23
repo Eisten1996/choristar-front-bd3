@@ -1,3 +1,3 @@
 export interface TypeClaim {
-    claim:  string;
+  claim: string;
 }
