@@ -2,22 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {Request} from "../../interfaces/request";
+import {RequestServiceService} from "../../services/request-service.service";
+import {MatDialog} from "@angular/material/dialog";
 
-export interface UserData {
-  id: string;
-  daterequest: string;
-  typeRequest: string;
-  stateRequest: string;
-  request: string;
-  iduser: string;
-}
-
-const DAY: string[]  = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'];
-const MONTH: string[]  = ['01','02','03','04','05','06','07','08','09','10'];
-const YEAR: string[]  = ['2011','2012','2013','2014','2015','2016','2017','2018','2019','2020'];
-
-const STATE: string[]  = ['CONCLUDED', 'ON HOLD'];
-const TYPE: string[]  = ['URGENT', 'POSTPONABLE', 'UNKNOWN'];
 
 @Component({
   selector: 'app-request',
@@ -25,23 +13,21 @@ const TYPE: string[]  = ['URGENT', 'POSTPONABLE', 'UNKNOWN'];
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'daterequest', 'typeRequest','iduser','stateRequest', 'request'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['id', 'dateRequest', 'typeRequest','user','stateRequest'];
+  requests: Request[];
 
+  dataSource = new MatTableDataSource<Request>(this.requests);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() {
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
-  }
+  constructor(private requestService: RequestServiceService, public dialog: MatDialog) {
+    
+    }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.getAllRequests();
   }
 
   applyFilter(event: Event) {
@@ -52,10 +38,17 @@ export class RequestComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-}
+
+  public getAllRequests() {
+    const resp = this.requestService.getAllRequests();
+    resp.subscribe(request => {
+      this.dataSource.data = request as Request[];
+    });
+  }
+
 
 /** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
+/* function createNewUser(id: number): UserData {
   const type = TYPE[Math.round(Math.random() * (TYPE.length - 1))] ;
   const date = DAY[Math.round(Math.random() * (DAY.length - 1))]+'/'+MONTH[Math.round(Math.random() * (MONTH.length - 1))]+'/'+YEAR[Math.round(Math.random() * (YEAR.length - 1))];
 
@@ -70,7 +63,7 @@ return {
   /* id: id.toString(),
   name: name,
   progress: Math.round(Math.random() * 100).toString(),
-  color: COLORS[Math.round(Math.random() * (COLORS.length - 1))] */
+  color: COLORS[Math.round(Math.random() * (COLORS.length - 1))] 
 };
-
+ */
 }
