@@ -1,36 +1,42 @@
 <div class="section_home">
-    <div class="header_home">
-        <h2>Bienvenido a Choristar 
-            <span class="home_user_name">Albert Huaman</span>
-        </h2>
-        <div class="home_subtitle">Pendientes: </div>
-    </div>
+  <div class="header_home">
+    <h2>Bienvenido a Choristar
+      <span class="home_user_name">{{admin.firstName}}</span>
+    </h2>
+    <div class="home_subtitle">Pendientes:</div>
+  </div>
 </div>
 <div class="body_home">
-    <!-- <button (click)="getAllUsers()">boton</button> -->
-    <div class="section_servicio" routerLink="/services">
-        <div class="header_info">
-            Clients
-        </div>
-        <div class="icon_info"><mat-icon style="font-size: 70px !important;">people_alt</mat-icon></div>
-        <div class="cantidad_info">3</div>
+  <!-- <button (click)="getAllUsers()">boton</button> -->
+  <div class="section_servicio" routerLink="/services">
+    <div class="header_info">
+      Clients
     </div>
-    <div class="section_reclamaciones" routerLink="/claims">
-        <div class="header_info">
-            Claims
-        </div>
-        <div>
-            <div class="icon_info"><mat-icon style="font-size: 70px !important;">question_answer</mat-icon></div>
-            <div class="cantidad_info">2</div>
-        </div>
+    <div class="icon_info">
+      <mat-icon style="font-size: 70px !important;">people_alt</mat-icon>
     </div>
-    <div class="section_solicitudes" routerLink="/requests">
-        <div class="header_info">
-            Requests
-        </div>
-        <div>
-            <div class="icon_info"><mat-icon style="font-size: 70px !important;">touch_app</mat-icon></div>
-            <div class="cantidad_info">2</div>
-        </div>
+    <div class="cantidad_info">{{countClient}}</div>
+  </div>
+  <div class="section_reclamaciones" routerLink="/claims">
+    <div class="header_info">
+      Claims
     </div>
+    <div>
+      <div class="icon_info">
+        <mat-icon style="font-size: 70px !important;">question_answer</mat-icon>
+      </div>
+      <div class="cantidad_info">{{countClaim}}</div>
+    </div>
+  </div>
+  <div class="section_solicitudes" routerLink="/requests">
+    <div class="header_info">
+      Requests
+    </div>
+    <div>
+      <div class="icon_info">
+        <mat-icon style="font-size: 70px !important;">touch_app</mat-icon>
+      </div>
+      <div class="cantidad_info">{{countRequest}}</div>
+    </div>
+  </div>
 </div>
