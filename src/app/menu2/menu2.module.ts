@@ -4,7 +4,6 @@ import { Menu2Component } from './menu2.component';
 import { MaterialModule } from '../material.module';
 
 
-
 @NgModule({
   declarations: [Menu2Component],
   imports: [
@@ -12,4 +11,5 @@ import { MaterialModule } from '../material.module';
     MaterialModule
   ]
 })
-export class Menu2Module { }
+export class Menu2Module {
+}

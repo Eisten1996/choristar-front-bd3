@@ -1,4 +1,4 @@
-import {TypeRequest} from "./type-request";
+import { TypeRequest } from './type-request';
 
 export interface Request {
   dateRequest: string;

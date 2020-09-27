@@ -1,6 +1,6 @@
-import {Service} from "./service";
-import {StateUser} from "./state-user";
-import {typeUser} from "./type-user";
+import { Service } from './service';
+import { StateUser } from './state-user';
+import { typeUser } from './type-user';
 
 export interface Profile {
   dateBirth: string;
