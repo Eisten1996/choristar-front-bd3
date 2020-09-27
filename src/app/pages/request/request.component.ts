@@ -1,10 +1,13 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
-import {Request} from "../../interfaces/request";
-import {RequestServiceService} from "../../services/request-service.service";
-import {MatDialog} from "@angular/material/dialog";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+
+import { Request } from '../../interfaces/request';
+import { RequestServiceService } from '../../services/request-service.service';
+import { ProfileService } from '../../services/user.service';
+import { Profile } from '../../interfaces/profile';
 
 
 @Component({
@@ -13,21 +16,34 @@ import {MatDialog} from "@angular/material/dialog";
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'dateRequest', 'typeRequest','user','stateRequest'];
+  displayedColumns: string[] = ['dateRequest', 'typeRequest', 'user', 'stateRequest', 'showRequest'];
   requests: Request[];
+  users: Profile[];
 
   dataSource = new MatTableDataSource<Request>(this.requests);
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private requestService: RequestServiceService, public dialog: MatDialog) {
-    
-    }
+  constructor(private requestService: RequestServiceService, private userService: ProfileService, public dialog: MatDialog) {
+  }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.getUsers();
     this.getAllRequests();
+  }
+
+  public getUsers(): void {
+    this.userService.getAllUsers().subscribe(
+      users => {
+        this.users = users;
+      }
+    );
+  }
+
+  public getDNIUser(id: string): string[] {
+    return this.users.filter(user => user.id === id).map(u => u.dni);
   }
 
   applyFilter(event: Event) {
@@ -46,24 +62,4 @@ export class RequestComponent implements OnInit {
     });
   }
 
-
-/** Builds and returns a new User. */
-/* function createNewUser(id: number): UserData {
-  const type = TYPE[Math.round(Math.random() * (TYPE.length - 1))] ;
-  const date = DAY[Math.round(Math.random() * (DAY.length - 1))]+'/'+MONTH[Math.round(Math.random() * (MONTH.length - 1))]+'/'+YEAR[Math.round(Math.random() * (YEAR.length - 1))];
-
-
-return {
-  id: id.toString(),
-  daterequest: date,
-  typeRequest: type,
-  request: "Description",
-  iduser: Math.round(Math.random() * 1000+60000).toString(),
-  stateRequest: STATE[Math.round(Math.random() * (STATE.length - 1))], 
-  /* id: id.toString(),
-  name: name,
-  progress: Math.round(Math.random() * 100).toString(),
-  color: COLORS[Math.round(Math.random() * (COLORS.length - 1))] 
-};
- */
 }
