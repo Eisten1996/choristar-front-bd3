@@ -8,6 +8,9 @@ import { Request } from '../../interfaces/request';
 import { RequestServiceService } from '../../services/request-service.service';
 import { ProfileService } from '../../services/user.service';
 import { Profile } from '../../interfaces/profile';
+import { Claim } from '../../interfaces/claim';
+import { ModalClaimComponent } from '../../modal-claim/modal-claim.component';
+import { ModalRequestComponent } from '../../modal-request/modal-request.component';
 
 
 @Component({
@@ -27,7 +30,7 @@ export class RequestComponent implements OnInit {
   constructor(private requestService: RequestServiceService, private userService: ProfileService, public dialog: MatDialog) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.getUsers();
@@ -46,7 +49,7 @@ export class RequestComponent implements OnInit {
     return this.users.filter(user => user.id === id).map(u => u.dni);
   }
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -55,10 +58,19 @@ export class RequestComponent implements OnInit {
     }
   }
 
-  public getAllRequests() {
+  public getAllRequests(): void {
     const resp = this.requestService.getAllRequests();
     resp.subscribe(request => {
       this.dataSource.data = request as Request[];
+    });
+  }
+
+  public getRequest(request: Request): void {
+    const dialogRef = this.dialog.open(ModalRequestComponent, {
+      data: { request }
+    });
+    dialogRef.afterClosed().subscribe((resolve) => {
+      console.log(`Dialog resolve : ${resolve}`);
     });
   }
 

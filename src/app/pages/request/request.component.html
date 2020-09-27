@@ -45,7 +45,7 @@
       <ng-container matColumnDef="showRequest">
         <th class="mat-header-cell" *matHeaderCellDef mat-sort-header> Watch</th>
         <td mat-cell *matCellDef="let element">
-          <button mat-button>
+          <button mat-button (click)="getRequest(element)">
             <mat-icon>search</mat-icon>
           </button>
         </td>
