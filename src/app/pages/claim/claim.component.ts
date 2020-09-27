@@ -7,9 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ClaimServiceService } from '../../services/claim-service.service';
 import { Claim } from '../../interfaces/claim';
 import { ProfileService } from '../../services/user.service';
-import { filter, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { Profile } from '../../interfaces/profile';
+import { ModalClaimComponent } from '../../modal-claim/modal-claim.component';
 
 @Component({
   selector: 'app-claim',
@@ -28,7 +27,7 @@ export class ClaimComponent implements OnInit {
   constructor(private claimService: ClaimServiceService, private userService: ProfileService, public dialog: MatDialog) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.getUsers();
@@ -45,7 +44,7 @@ export class ClaimComponent implements OnInit {
     }
   }
 
-  public getUsers() {
+  public getUsers(): void {
     this.userService.getAllUsers().subscribe(
       users => {
         this.users = users;
@@ -61,6 +60,15 @@ export class ClaimComponent implements OnInit {
     const resp = this.claimService.getAllClaims();
     resp.subscribe(claim => {
       this.dataSource.data = claim as Claim[];
+    });
+  }
+
+  public getClaim(claim: Claim): void {
+    const dialogRef = this.dialog.open(ModalClaimComponent, {
+      data: { claim }
+    });
+    dialogRef.afterClosed().subscribe((resolve) => {
+      console.log(`Dialog resolve : ${resolve}`);
     });
   }
 
