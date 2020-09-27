@@ -1,4 +1,4 @@
 export interface StateUser {
-    description: string;
-    nameUser: string;
+  description: string;
+  nameUser: string;
 }

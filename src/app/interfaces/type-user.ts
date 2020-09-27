@@ -1,4 +1,4 @@
 export interface typeUser {
-    description: string;
-    nameTypeUser: string;
+  description: string;
+  nameTypeUser: string;
 }
