@@ -8,7 +8,7 @@ import { ClaimServiceService } from '../../services/claim-service.service';
 import { Claim } from '../../interfaces/claim';
 import { ProfileService } from '../../services/user.service';
 import { Profile } from '../../interfaces/profile';
-import { ModalClaimComponent } from '../../modal-claim/modal-claim.component';
+import { ModalClaimComponent } from './modal-claim/modal-claim.component';
 
 @Component({
   selector: 'app-claim',
