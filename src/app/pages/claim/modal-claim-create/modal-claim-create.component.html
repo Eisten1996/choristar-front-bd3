@@ -1,0 +1,31 @@
+<h2 mat-dialog-title> Create Claim </h2>
+<mat-dialog-content>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Formulario de Reclamos</mat-card-title>
+      <mat-card-subtitle>Ingrese los datos</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="checkoutForm" (ngSubmit)="createClaim()">
+        <div>
+          <mat-form-field>
+            <input type="text" matInput placeholder="typeClaim" formControlName="typeClaim" name="typeClaim">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input type="text" matInput placeholder="user" formControlName="user" name="user">
+          </mat-form-field>
+        </div>
+        <button type="submit" mat-raised-button [disabled]="checkoutForm.invalid" mat-dialog-close>
+          Registrar Claim
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close mat-dialog-close="false">
+    Cerrar
+  </button>
+</mat-dialog-actions>
