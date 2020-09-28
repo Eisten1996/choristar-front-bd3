@@ -22,7 +22,7 @@ export class ModalClientCreateComponent implements OnInit {
   checkoutForm = this.formBuilder.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
-    dni: ['', [Validators.required, Validators.pattern(/[0-9]{8}$/), Validators.maxLength(8)]],
+    dni: ['', [Validators.required, Validators.pattern(/[0-9]{9}$/), Validators.maxLength(9)]],
     email: ['', [Validators.required, Validators.pattern(/.+@.+\..+/)]],
     password: ['', [Validators.required]],
     dateBirth: ['', [Validators.required]],

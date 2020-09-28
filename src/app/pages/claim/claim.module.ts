@@ -5,14 +5,13 @@ import { ClaimRoutingModule } from './claim-routing.module';
 import { MaterialModule } from '../../material.module';
 
 
-
-
 @NgModule({
   declarations: [ClaimComponent],
   imports: [
     CommonModule,
     MaterialModule,
-    ClaimRoutingModule,
+    ClaimRoutingModule
   ]
 })
-export class ClaimModule { }
+export class ClaimModule {
+}

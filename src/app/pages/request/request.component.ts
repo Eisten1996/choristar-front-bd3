@@ -11,6 +11,8 @@ import { Profile } from '../../interfaces/profile';
 import { Claim } from '../../interfaces/claim';
 import { ModalClaimComponent } from '../claim/modal-claim/modal-claim.component';
 import { ModalRequestComponent } from './modal-request/modal-request.component';
+import { ModalClaimCreateComponent } from '../claim/modal-claim-create/modal-claim-create.component';
+import { ModalRequestCreateComponent } from './modal-request-create/modal-request-create.component';
 
 
 @Component({
@@ -72,6 +74,22 @@ export class RequestComponent implements OnInit {
     dialogRef.afterClosed().subscribe((resolve) => {
       console.log(`Dialog resolve : ${resolve}`);
     });
+  }
+
+  public createRequest(): void {
+    const dialogRef = this.dialog.open(ModalRequestCreateComponent, {
+      data: {}
+    });
+    dialogRef.afterClosed().subscribe((resolve) => {
+      console.log(`Dialog resolve : ${resolve}`);
+      window.location.reload();
+    });
+  }
+
+  public deletedRequest(request: Request): void {
+    this.requestService.deleteRequest(request.id).subscribe();
+    alert(`request ${request.typeRequest.request} eliminado`);
+    window.location.reload();
   }
 
 }

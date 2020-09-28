@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RequestComponent } from './request.component';
 import { RequestRoutingModule } from './request-routing.module';
 import { MaterialModule } from '../../material.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -11,7 +12,10 @@ import { MaterialModule } from '../../material.module';
   imports: [
     CommonModule,
     MaterialModule,
-    RequestRoutingModule
+    RequestRoutingModule,
+    ReactiveFormsModule,
+    MatDialogModule
   ]
 })
-export class RequestModule { }
+export class RequestModule {
+}
