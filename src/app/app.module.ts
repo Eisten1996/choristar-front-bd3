@@ -15,10 +15,27 @@ import { ModalRequestComponent } from './pages/request/modal-request/modal-reque
 import { ModalClientCreateComponent } from './pages/service/modal-client-create/modal-client-create.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ModalClaimCreateComponent } from './pages/claim/modal-claim-create/modal-claim-create.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ModalRequestCreateComponent } from './pages/request/modal-request-create/modal-request-create.component';
 
 @NgModule({
-  declarations: [AppComponent, Menu2Component, ModalClientComponent, ModalClaimComponent, ModalRequestComponent, ModalClientCreateComponent],
-  entryComponents: [ModalClientComponent, ModalClaimComponent, ModalRequestComponent, ModalClientCreateComponent],
+  declarations: [
+    AppComponent,
+    Menu2Component,
+    ModalClientComponent,
+    ModalClaimComponent,
+    ModalRequestComponent,
+    ModalClientCreateComponent,
+    ModalClaimCreateComponent,
+    ModalRequestCreateComponent],
+  entryComponents: [
+    ModalClientComponent,
+    ModalClaimComponent,
+    ModalRequestComponent,
+    ModalClientCreateComponent,
+    ModalClaimCreateComponent,
+    ModalRequestCreateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,7 +46,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatAutocompleteModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

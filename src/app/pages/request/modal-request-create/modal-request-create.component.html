@@ -1,0 +1,31 @@
+<h2 mat-dialog-title> Create Request </h2>
+<mat-dialog-content>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Formulario de Solicitud</mat-card-title>
+      <mat-card-subtitle>Ingrese los datos</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="checkoutForm" (ngSubmit)="createClaim()">
+        <div>
+          <mat-form-field>
+            <input type="text" matInput placeholder="typeRequest" formControlName="typeRequest" name="typeRequest">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input type="text" matInput placeholder="user" formControlName="user" name="user">
+          </mat-form-field>
+        </div>
+        <button type="submit" mat-raised-button [disabled]="checkoutForm.invalid" mat-dialog-close>
+          Registrar Request
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close mat-dialog-close="false">
+    Cerrar
+  </button>
+</mat-dialog-actions>

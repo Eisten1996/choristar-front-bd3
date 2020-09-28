@@ -6,6 +6,9 @@
     <mat-card-subtitle>
       REQUESTS RECORD
     </mat-card-subtitle>
+    <div>
+      <button mat-raised-button (click)="createRequest()">Create Request</button>
+    </div>
   </mat-card-header>
 
 
@@ -47,6 +50,9 @@
         <td mat-cell *matCellDef="let element">
           <button mat-button (click)="getRequest(element)">
             <mat-icon>search</mat-icon>
+          </button>
+          <button mat-button style="color: #dc3545" (click)="deletedRequest(element)">
+            <mat-icon>delete</mat-icon>
           </button>
         </td>
       </ng-container>

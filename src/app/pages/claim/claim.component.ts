@@ -9,6 +9,8 @@ import { Claim } from '../../interfaces/claim';
 import { ProfileService } from '../../services/user.service';
 import { Profile } from '../../interfaces/profile';
 import { ModalClaimComponent } from './modal-claim/modal-claim.component';
+import { ModalClientCreateComponent } from '../service/modal-client-create/modal-client-create.component';
+import { ModalClaimCreateComponent } from './modal-claim-create/modal-claim-create.component';
 
 @Component({
   selector: 'app-claim',
@@ -70,6 +72,22 @@ export class ClaimComponent implements OnInit {
     dialogRef.afterClosed().subscribe((resolve) => {
       console.log(`Dialog resolve : ${resolve}`);
     });
+  }
+
+  public createClaim(): void {
+    const dialogRef = this.dialog.open(ModalClaimCreateComponent, {
+      data: {}
+    });
+    dialogRef.afterClosed().subscribe((resolve) => {
+      console.log(`Dialog resolve : ${resolve}`);
+      window.location.reload();
+    });
+  }
+
+  public deletedClaim(claim: Claim): void {
+    this.claimService.deleteClaim(claim.id).subscribe();
+    alert(`claim ${claim.typeClaim.claim} eliminado`);
+    window.location.reload();
   }
 
 }
