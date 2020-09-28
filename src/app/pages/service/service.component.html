@@ -6,9 +6,12 @@
     <mat-card-subtitle>
       CLIENTS RECORD
     </mat-card-subtitle>
+    <div>
+      <button mat-raised-button (click)="createUser()">Create Client</button>
+    </div>
   </mat-card-header>
-  
-  
+
+
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="name" #input>
@@ -38,14 +41,18 @@
 
       <ng-container matColumnDef="stateUser">
         <th class="mat-header-cell" *matHeaderCellDef mat-sort-header>STATUS</th>
-        <td mat-cell *matCellDef="let element">{{element.stateUser.nameUser}}</td>
+        <td mat-cell *matCellDef="let element"
+            [ngStyle]="{'color':element.stateUser.nameUser === 'deudor' ? '#dc3545' : 'none' }">  {{element.stateUser.nameUser}}</td>
       </ng-container>
 
       <ng-container matColumnDef="showUser">
-        <th class="mat-header-cell" *matHeaderCellDef mat-sort-header>WATCH</th>
+        <th class="mat-header-cell" *matHeaderCellDef mat-sort-header>ACTIONS</th>
         <td mat-cell *matCellDef="let element">
           <button mat-button (click)="getUser(element)">
             <mat-icon>search</mat-icon>
+          </button>
+          <button mat-button style="color: #dc3545" (click)="deletedClient(element)">
+            <mat-icon>delete</mat-icon>
           </button>
         </td>
       </ng-container>

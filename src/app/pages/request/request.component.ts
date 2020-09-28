@@ -9,8 +9,8 @@ import { RequestServiceService } from '../../services/request-service.service';
 import { ProfileService } from '../../services/user.service';
 import { Profile } from '../../interfaces/profile';
 import { Claim } from '../../interfaces/claim';
-import { ModalClaimComponent } from '../../modal-claim/modal-claim.component';
-import { ModalRequestComponent } from '../../modal-request/modal-request.component';
+import { ModalClaimComponent } from '../claim/modal-claim/modal-claim.component';
+import { ModalRequestComponent } from './modal-request/modal-request.component';
 
 
 @Component({

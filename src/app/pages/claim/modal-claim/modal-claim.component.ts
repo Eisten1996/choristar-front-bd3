@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { Profile } from '../interfaces/profile';
-import { ProfileService } from '../services/user.service';
+import { Profile } from '../../../interfaces/profile';
+import { ProfileService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-modal-claim',

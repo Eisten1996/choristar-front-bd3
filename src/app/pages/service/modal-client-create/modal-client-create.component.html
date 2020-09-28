@@ -1,0 +1,55 @@
+<h2 mat-dialog-title> Create Client </h2>
+<mat-dialog-content>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Formulario de Cliente</mat-card-title>
+      <mat-card-subtitle>Ingrese los datos</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="checkoutForm" (ngSubmit)="createClient()">
+        <div>
+          <mat-form-field>
+            <input type="text" matInput placeholder="firstName" formControlName="firstName" name="firstName">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input type="text" matInput placeholder="lastName" formControlName="lastName" name="lastName">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input type="number" matInput placeholder="dni" formControlName="dni" name="dni">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input type="email" matInput placeholder="Email" formControlName="email" name="email">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input type="password" matInput placeholder="Password" formControlName="password" name="password">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>date birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateBirth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <button type="submit" mat-raised-button [disabled]="checkoutForm.invalid" mat-dialog-close>
+          Registrar cliente
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close mat-dialog-close="false">
+    Cerrar
+  </button>
+</mat-dialog-actions>
+
