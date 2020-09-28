@@ -5,7 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Profile } from '../../interfaces/profile';
 import { ProfileService } from '../../services/user.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalClientComponent } from '../../modal-client/modal-client.component';
+import { ModalClientComponent } from './modal-client/modal-client.component';
+import { ModalClientCreateComponent } from './modal-client-create/modal-client-create.component';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class ServiceComponent implements OnInit {
   constructor(private profileService: ProfileService, public dialog: MatDialog) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.getAllClients();
@@ -54,6 +55,22 @@ export class ServiceComponent implements OnInit {
     dialogRef.afterClosed().subscribe((resolve) => {
       console.log(`Dialog resolve : ${resolve}`);
     });
+  }
+
+  public createUser(): void {
+    const dialogRef = this.dialog.open(ModalClientCreateComponent, {
+      data: {}
+    });
+    dialogRef.afterClosed().subscribe((resolve) => {
+      console.log(`Dialog resolve : ${resolve}`);
+      window.location.reload();
+    });
+  }
+
+  public deletedClient(client: Profile): void {
+    this.profileService.deleteUser(client.id).subscribe();
+    alert(`cliente ${client.firstName} eliminado`);
+    window.location.reload();
   }
 
 

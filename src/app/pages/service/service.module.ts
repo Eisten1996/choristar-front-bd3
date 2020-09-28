@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ServiceComponent } from './service.component';
 import { ServiceRoutingModule } from './service-routing.module';
 import { MaterialModule } from '../../material.module';
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -11,7 +11,9 @@ import { MaterialModule } from '../../material.module';
   imports: [
     CommonModule,
     MaterialModule,
-    ServiceRoutingModule
+    ServiceRoutingModule,
+    MatDialogModule
   ]
 })
-export class ServiceModule { }
+export class ServiceModule {
+}
