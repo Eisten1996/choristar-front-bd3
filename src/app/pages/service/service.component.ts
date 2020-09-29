@@ -68,10 +68,10 @@ export class ServiceComponent implements OnInit {
   }
 
   public deletedClient(client: Profile): void {
-    this.profileService.deleteUser(client.id).subscribe();
-    alert(`cliente ${client.firstName} eliminado`);
-    window.location.reload();
+    if (confirm(`Desea eliminar cliente ${client.firstName}`)) {
+      this.profileService.deleteUser(client.id).subscribe();
+      alert(`cliente ${client.firstName} eliminado`);
+      window.location.reload();
+    }
   }
-
-
 }

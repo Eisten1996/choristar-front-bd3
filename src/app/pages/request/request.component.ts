@@ -87,9 +87,11 @@ export class RequestComponent implements OnInit {
   }
 
   public deletedRequest(request: Request): void {
-    this.requestService.deleteRequest(request.id).subscribe();
-    alert(`request ${request.typeRequest.request} eliminado`);
-    window.location.reload();
+    if (confirm(`Desea eliminar request ${request.typeRequest.request}`)) {
+      this.requestService.deleteRequest(request.id).subscribe();
+      alert(`request ${request.typeRequest.request} eliminado`);
+      window.location.reload();
+    }
   }
 
 }
