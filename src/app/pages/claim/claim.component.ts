@@ -85,9 +85,11 @@ export class ClaimComponent implements OnInit {
   }
 
   public deletedClaim(claim: Claim): void {
-    this.claimService.deleteClaim(claim.id).subscribe();
-    alert(`claim ${claim.typeClaim.claim} eliminado`);
-    window.location.reload();
+    if (confirm(`Desea eliminar claim ${claim.typeClaim.claim}`)) {
+      this.claimService.deleteClaim(claim.id).subscribe();
+      alert(`claim ${claim.typeClaim.claim} eliminado`);
+      window.location.reload();
+    }
   }
 
 }
