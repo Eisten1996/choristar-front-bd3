@@ -5,13 +5,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 
 import { Request } from '../../interfaces/request';
-import { RequestServiceService } from '../../services/request-service.service';
-import { ProfileService } from '../../services/user.service';
-import { Profile } from '../../interfaces/profile';
-import { Claim } from '../../interfaces/claim';
-import { ModalClaimComponent } from '../claim/modal-claim/modal-claim.component';
+import { RequestServiceService } from '../../core/services/request-service.service';
+import { ProfileService } from '../../core/services/user.service';
+import { User } from '../../interfaces/user';
 import { ModalRequestComponent } from './modal-request/modal-request.component';
-import { ModalClaimCreateComponent } from '../claim/modal-claim-create/modal-claim-create.component';
 import { ModalRequestCreateComponent } from './modal-request-create/modal-request-create.component';
 
 
@@ -23,7 +20,7 @@ import { ModalRequestCreateComponent } from './modal-request-create/modal-reques
 export class RequestComponent implements OnInit {
   displayedColumns: string[] = ['dateRequest', 'typeRequest', 'user', 'stateRequest', 'showRequest'];
   requests: Request[];
-  users: Profile[];
+  users: User[];
 
   dataSource = new MatTableDataSource<Request>(this.requests);
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
