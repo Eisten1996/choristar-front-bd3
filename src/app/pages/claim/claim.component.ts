@@ -9,7 +9,6 @@ import { Claim } from '../../interfaces/claim';
 import { ProfileService } from '../../services/user.service';
 import { Profile } from '../../interfaces/profile';
 import { ModalClaimComponent } from './modal-claim/modal-claim.component';
-import { ModalClientCreateComponent } from '../service/modal-client-create/modal-client-create.component';
 import { ModalClaimCreateComponent } from './modal-claim-create/modal-claim-create.component';
 
 @Component({

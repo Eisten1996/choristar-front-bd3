@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: 'clients',
     loadChildren: () =>
-      import('./pages/service/service.module').then((m) => m.ServiceModule)
+      import('./pages/client/client.module').then((m) => m.ClientModule)
   },
   {
     path: 'requests',

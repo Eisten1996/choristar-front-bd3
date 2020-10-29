@@ -1,20 +1,20 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Profile } from '../../../interfaces/profile';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { Profile } from '../../interfaces/profile';
-import { ProfileService } from '../../services/user.service';
+import { ProfileService } from '../../../services/user.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalClientComponent } from './modal-client/modal-client.component';
-import { ModalClientCreateComponent } from './modal-client-create/modal-client-create.component';
-
+import { ModalClientComponent } from '../modal-client/modal-client.component';
+import { ModalClientCreateComponent } from '../modal-client-create/modal-client-create.component';
 
 @Component({
-  selector: 'app-service',
-  templateUrl: './service.component.html',
-  styleUrls: ['./service.component.css']
+  selector: 'app-client',
+  templateUrl: './client.component.html',
+  styleUrls: ['./client.component.css']
 })
-export class ServiceComponent implements OnInit {
+export class ClientComponent implements OnInit {
+
   displayedColumns: string[] = ['dni', 'firstName', 'lastName', 'email', 'stateUser', 'showUser'];
   profiles: Profile[];
 
@@ -74,4 +74,5 @@ export class ServiceComponent implements OnInit {
       window.location.reload();
     }
   }
+
 }
