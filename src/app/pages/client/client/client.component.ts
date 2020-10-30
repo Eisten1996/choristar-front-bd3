@@ -63,7 +63,7 @@ export class ClientComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((resolve) => {
       console.log(`Dialog resolve : ${resolve}`);
-      window.location.reload();
+      // window.location.reload();
     });
   }
 
