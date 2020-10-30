@@ -1,24 +1,24 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { User } from '../../../interfaces/user';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { Profile } from '../../interfaces/profile';
-import { ProfileService } from '../../services/user.service';
+import { ProfileService } from '../../../core/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalClientComponent } from './modal-client/modal-client.component';
-import { ModalClientCreateComponent } from './modal-client-create/modal-client-create.component';
-
+import { ModalClientComponent } from '../modal-client/modal-client.component';
+import { ModalClientCreateComponent } from '../modal-client-create/modal-client-create.component';
 
 @Component({
-  selector: 'app-service',
-  templateUrl: './service.component.html',
-  styleUrls: ['./service.component.css']
+  selector: 'app-client',
+  templateUrl: './client.component.html',
+  styleUrls: ['./client.component.css']
 })
-export class ServiceComponent implements OnInit {
-  displayedColumns: string[] = ['dni', 'firstName', 'lastName', 'email', 'stateUser', 'showUser'];
-  profiles: Profile[];
+export class ClientComponent implements OnInit {
 
-  dataSource = new MatTableDataSource<Profile>(this.profiles);
+  displayedColumns: string[] = ['dni', 'firstName', 'lastName', 'email', 'stateUser', 'showUser'];
+  user: User[];
+
+  dataSource = new MatTableDataSource<User>(this.user);
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -44,11 +44,11 @@ export class ServiceComponent implements OnInit {
   public getAllClients(): void {
     const resp = this.profileService.getAllUsers();
     resp.subscribe(profile => {
-      this.dataSource.data = profile as Profile[];
+      this.dataSource.data = profile as User[];
     });
   }
 
-  public getUser(client: Profile): void {
+  public getUser(client: User): void {
     const dialogRef = this.dialog.open(ModalClientComponent, {
       data: { client }
     });
@@ -63,15 +63,16 @@ export class ServiceComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((resolve) => {
       console.log(`Dialog resolve : ${resolve}`);
-      window.location.reload();
+      // window.location.reload();
     });
   }
 
-  public deletedClient(client: Profile): void {
-    this.profileService.deleteUser(client.id).subscribe();
-    alert(`cliente ${client.firstName} eliminado`);
-    window.location.reload();
+  public deletedClient(client: User): void {
+    if (confirm(`Desea eliminar cliente ${client.firstName}`)) {
+      this.profileService.deleteUser(client.id).subscribe();
+      alert(`cliente ${client.firstName} eliminado`);
+      window.location.reload();
+    }
   }
-
 
 }

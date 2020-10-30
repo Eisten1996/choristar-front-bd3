@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { ProfileService } from '../../../services/user.service';
-import { Profile } from '../../../interfaces/profile';
+import { ProfileService } from '../../../core/services/user.service';
+import { User } from '../../../interfaces/user';
 import { TypeClaim } from '../../../interfaces/type-claim';
 import { Claim } from '../../../interfaces/claim';
-import { ClaimServiceService } from '../../../services/claim-service.service';
+import { ClaimServiceService } from '../../../core/services/claim-service.service';
 
 @Component({
   selector: 'app-modal-claim-create',
@@ -14,7 +14,7 @@ import { ClaimServiceService } from '../../../services/claim-service.service';
 })
 export class ModalClaimCreateComponent implements OnInit {
 
-  user: Profile;
+  user: User;
   claim: Claim;
   today = new Date();
   dateClaim = this.today.getFullYear() + '-' +

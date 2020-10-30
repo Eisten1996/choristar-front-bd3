@@ -4,12 +4,11 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 
-import { ClaimServiceService } from '../../services/claim-service.service';
+import { ClaimServiceService } from '../../core/services/claim-service.service';
 import { Claim } from '../../interfaces/claim';
-import { ProfileService } from '../../services/user.service';
-import { Profile } from '../../interfaces/profile';
+import { ProfileService } from '../../core/services/user.service';
+import { User } from '../../interfaces/user';
 import { ModalClaimComponent } from './modal-claim/modal-claim.component';
-import { ModalClientCreateComponent } from '../service/modal-client-create/modal-client-create.component';
 import { ModalClaimCreateComponent } from './modal-claim-create/modal-claim-create.component';
 
 @Component({
@@ -20,7 +19,7 @@ import { ModalClaimCreateComponent } from './modal-claim-create/modal-claim-crea
 export class ClaimComponent implements OnInit {
   displayedColumns: string[] = ['dateClaim', 'typeClaim', 'user', 'stateClaim', 'showClaim'];
   claims: Claim[];
-  users: Profile[];
+  users: User[];
 
   dataSource = new MatTableDataSource<Claim>(this.claims);
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -85,9 +84,11 @@ export class ClaimComponent implements OnInit {
   }
 
   public deletedClaim(claim: Claim): void {
-    this.claimService.deleteClaim(claim.id).subscribe();
-    alert(`claim ${claim.typeClaim.claim} eliminado`);
-    window.location.reload();
+    if (confirm(`Desea eliminar claim ${claim.typeClaim.claim}`)) {
+      this.claimService.deleteClaim(claim.id).subscribe();
+      alert(`claim ${claim.typeClaim.claim} eliminado`);
+      window.location.reload();
+    }
   }
 
 }

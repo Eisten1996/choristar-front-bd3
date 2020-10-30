@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { Profile } from '../../../interfaces/profile';
-import { ProfileService } from '../../../services/user.service';
+import { User } from '../../../interfaces/user';
+import { ProfileService } from '../../../core/services/user.service';
 import { TypeRequest } from '../../../interfaces/type-request';
-import { RequestServiceService } from '../../../services/request-service.service';
+import { RequestServiceService } from '../../../core/services/request-service.service';
 import { Request } from '../../../interfaces/request';
 
 @Component({
@@ -14,7 +14,7 @@ import { Request } from '../../../interfaces/request';
 })
 export class ModalRequestCreateComponent implements OnInit {
 
-  user: Profile;
+  user: User;
   request: Request;
   today = new Date();
   dateRequest = this.today.getFullYear() + '-' +

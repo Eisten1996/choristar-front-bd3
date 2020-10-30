@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ServiceComponent } from './service.component';
-import { ServiceRoutingModule } from './service-routing.module';
+import { ClientComponent } from './client/client.component';
 import { MaterialModule } from '../../material.module';
+import { ClientRoutingModule } from './client-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
-  declarations: [ServiceComponent],
+  declarations: [ClientComponent],
   imports: [
     CommonModule,
     MaterialModule,
-    ServiceRoutingModule,
+    ClientRoutingModule,
     MatDialogModule
   ]
 })
-export class ServiceModule {
+export class ClientModule {
 }

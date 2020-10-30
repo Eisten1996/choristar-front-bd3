@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ProfileService } from '../../../services/user.service';
-import { Profile } from '../../../interfaces/profile';
+import { ProfileService } from '../../../core/services/user.service';
+import { User } from '../../../interfaces/user';
 
 @Component({
   selector: 'app-modal-client-create',
@@ -9,7 +9,7 @@ import { Profile } from '../../../interfaces/profile';
   styleUrls: ['./modal-client-create.component.css']
 })
 export class ModalClientCreateComponent implements OnInit {
-  user: Profile;
+  user: User;
   stateUser = {
     nameUser: 'al dia',
     description: 'cliente con pagos al dia'
