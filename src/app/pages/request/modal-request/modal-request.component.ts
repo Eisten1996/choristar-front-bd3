@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { Profile } from '../../../interfaces/profile';
-import { ProfileService } from '../../../services/user.service';
+import { User } from '../../../interfaces/user';
+import { ProfileService } from '../../../core/services/user.service';
 
 @Component({
   selector: 'app-modal-request',
@@ -11,7 +11,7 @@ import { ProfileService } from '../../../services/user.service';
 })
 export class ModalRequestComponent implements OnInit {
 
-  user: Profile;
+  user: User;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private userService: ProfileService) {
   }

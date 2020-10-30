@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { ProfileService } from './services/user.service';
-import { Profile } from './interfaces/profile';
+import { ProfileService } from './core/services/user.service';
+import { User } from './interfaces/user';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { Profile } from './interfaces/profile';
 export class AppComponent {
   title = 'Choristar';
   flag = false;
-  user: Profile;
+  user: User;
 
   checkoutForm = this.formBuilder.group({
     email: [null, [Validators.required, Validators.pattern(/.+@.+\..+/)]],

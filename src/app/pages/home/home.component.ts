@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ProfileService} from '../../services/user.service'
-import {Profile} from "../../interfaces/profile";
-import {RequestServiceService} from "../../services/request-service.service";
-import {ClaimServiceService} from "../../services/claim-service.service";
+import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../../core/services/user.service';
+import { User } from '../../interfaces/user';
+import { RequestServiceService } from '../../core/services/request-service.service';
+import { ClaimServiceService } from '../../core/services/claim-service.service';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +10,14 @@ import {ClaimServiceService} from "../../services/claim-service.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  admin: Profile;
+  admin: User;
   countClient: number;
   countClaim: number;
   countRequest: number;
 
-  constructor(private profileService: ProfileService, private requestServiceService: RequestServiceService, private claimServiceService: ClaimServiceService) {
+  constructor(private profileService: ProfileService,
+              private requestServiceService: RequestServiceService,
+              private claimServiceService: ClaimServiceService) {
   }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class HomeComponent {
       this.countClaim = claim.length;
     });
 
-    this.admin = JSON.parse(localStorage.getItem("admin"));
+    this.admin = JSON.parse(localStorage.getItem('admin'));
   }
 
 }

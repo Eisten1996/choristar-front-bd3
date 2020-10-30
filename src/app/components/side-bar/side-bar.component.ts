@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from '../../interfaces/profile';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-side-bar',
@@ -8,7 +8,7 @@ import { Profile } from '../../interfaces/profile';
 })
 export class SideBarComponent implements OnInit {
 
-  admin: Profile;
+  admin: User;
 
   constructor() {
   }

@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ProfileService} from '../../services/user.service';
-import {Profile} from "../../interfaces/profile";
+import { Component, OnInit } from '@angular/core';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-profile',
@@ -8,13 +7,14 @@ import {Profile} from "../../interfaces/profile";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  admin: Profile;
+  admin: User;
+
   constructor() {
   }
 
 
   ngOnInit(): void {
-    this.admin = JSON.parse(localStorage.getItem("admin"));
+    this.admin = JSON.parse(localStorage.getItem('admin'));
   }
 
 }

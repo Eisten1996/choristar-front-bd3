@@ -2,7 +2,7 @@ import { Service } from './service';
 import { StateUser } from './state-user';
 import { typeUser } from './type-user';
 
-export interface Profile {
+export interface User {
   dateBirth: string;
   dni: string;
   email: string;
