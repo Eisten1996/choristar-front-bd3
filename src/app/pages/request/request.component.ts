@@ -5,11 +5,13 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 
 import { Request } from '../../interfaces/request';
-import { RequestServiceService } from '../../core/services/request-service.service';
-import { ProfileService } from '../../core/services/user.service';
-import { User } from '../../interfaces/user';
+
+
 import { ModalRequestComponent } from './modal-request/modal-request.component';
 import { ModalRequestCreateComponent } from './modal-request-create/modal-request-create.component';
+import { User } from '../../interfaces/user';
+import { ProfileService } from '../../core/services/user.service';
+import { RequestServiceService } from '../../core/services/request-service.service';
 
 
 @Component({
